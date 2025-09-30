@@ -1,11 +1,11 @@
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import { useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import SkateModel from './SkateModel'
 import '../styles/components/CanvasWrapper.scss'
-import { div } from '@tensorflow/tfjs'
 
+// import { div } from '@tensorflow/tfjs'
 // import { Perf } from 'r3f-perf'
 
 import { useHandGesture } from './HandGestureProvider'

@@ -1,7 +1,8 @@
-import React, { createContext, useContext, useEffect, useState, useRef } from 'react'
+import { createContext, useContext, useEffect, useState, useRef } from 'react'
 import type { ReactNode } from 'react'
-import * as tf from '@tensorflow/tfjs'
-import * as handpose from '@tensorflow-models/handpose'
+
+// import * as tf from '@tensorflow/tfjs'
+// import * as handpose from '@tensorflow-models/handpose'
 
 type Trick = 'Ollie' | 'Flip' | 'ShuvIt' | null
 
@@ -17,15 +18,15 @@ export const useHandGesture = () => useContext(HandGestureContext)
 export const HandGestureProvider = ({ children }: { children: ReactNode }) => {
     const [handOpen, setHandOpen] = useState(false)
     const [trick, setTrick] = useState<Trick>(null)
-    const modelRef = useRef<any>(null)
-    const prevWristRef = useRef({ x: 0, y: 0, z: 0 })
+    // const modelRef = useRef<any>(null)
+    // const prevWristRef = useRef({ x: 0, y: 0, z: 0 })
     const trickLockRef = useRef(false)
 
     useEffect(() => {
         const btnTop = document.querySelector('#top')
         const btnLeft = document.querySelector('#left')
         const btnBottom = document.querySelector('#bottom')
-        const btnRight = document.querySelector('#right')
+        // const btnRight = document.querySelector('#right')
 
         btnTop?.addEventListener('click', () => {
           

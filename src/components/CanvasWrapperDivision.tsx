@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useEffect } from 'react'
+import { Suspense, useRef, useEffect } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import SkateDivision from './SkateDivision'
 import '../styles/components/CanvasWrapper.scss'
