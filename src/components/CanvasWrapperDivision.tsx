@@ -32,7 +32,7 @@ function CameraController() {
         end: 'bottom center',
         scrub: true,
         pinSpacing: false,
-        markers: true,
+        // markers: true,
 
         onUpdate: () => {
 

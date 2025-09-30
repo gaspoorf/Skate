@@ -16,7 +16,8 @@ const HandGestureContext = createContext<HandGestureContextType>({ handOpen: fal
 export const useHandGesture = () => useContext(HandGestureContext)
 
 export const HandGestureProvider = ({ children }: { children: ReactNode }) => {
-    const [handOpen, setHandOpen] = useState(false)
+    // const [handOpen, setHandOpen] = useState(false)
+    const [handOpen] = useState(false)
     const [trick, setTrick] = useState<Trick>(null)
     // const modelRef = useRef<any>(null)
     // const prevWristRef = useRef({ x: 0, y: 0, z: 0 })
