@@ -1,0 +1,18 @@
+.intro{
+    height: 200vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    margin-top: 20rem;
+
+    p{
+        font-size: 2rem;
+        font-weight: lighter;
+        color: red;
+        max-width: 1000px;
+        text-align: center;
+    }
+
+}

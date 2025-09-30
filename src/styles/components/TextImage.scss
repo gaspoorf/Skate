@@ -1,0 +1,36 @@
+.text-image{
+    height: 80rem;
+    width: calc(100% - 8rem);
+    max-width: 2500px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+
+    h3{
+        display: flex;
+        flex-direction: column;
+    }
+
+    img{
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        z-index: -1;
+        width: 45%;
+    }
+    
+
+    p{
+        position: absolute;
+        bottom: -5rem;
+        right: 0;
+        width: 500px;
+        font-size: 2rem;
+        font-weight: lighter;
+    }
+
+}
