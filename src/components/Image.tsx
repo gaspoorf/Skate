@@ -37,7 +37,7 @@ const Image = () => {
   return (
     <div className="image">
       <div className="img-container">
-        <img src="./public/img/jam.webp" className="img-content" alt="Picture jam skate"/>
+        <img src="/img/jam.webp" className="img-content" alt="Picture jam skate"/>
       </div>
     </div>
   )
