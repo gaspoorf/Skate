@@ -6,12 +6,41 @@
     .canvas-division{
         width: 100%;
         height: 100vh !important;
+        top: 0 !important;
     }
 
     .canvas-title{
         position: absolute;
         top: 2rem;
         left: 2rem;
+
+        @media (max-width: 1350px) {
+            h3{
+                font-size: 8rem;
+                line-height: 7rem;
+            }
+        }
+
+        @media (max-width: 990px) {
+            h3{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 690px) {
+            h3{
+                font-size: 6rem;
+                line-height: 6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h3{
+                font-size: 3.5rem;
+                line-height: 3rem;
+            }
+        }
     }
 
     .canvas-btn{
@@ -24,6 +53,12 @@
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
+
+        @media (max-width: 800px) {
+            right: auto;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
         .btn-row{
             display: flex;

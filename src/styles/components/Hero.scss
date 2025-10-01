@@ -15,3 +15,30 @@
     }
 
 }
+
+@media (max-width: 1400px) {
+    .hero{
+        &-title{
+            font-size: 14rem;
+            line-height: 9rem;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .hero{
+        &-title{
+            font-size: 7rem;
+            line-height: 5rem;
+        }
+    }
+}
+
+@media (max-width: 570px) {
+    .hero{
+        &-title{
+            font-size: 4rem;
+            line-height: 3rem;
+        }
+    }
+}

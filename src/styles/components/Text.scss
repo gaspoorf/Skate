@@ -6,6 +6,11 @@
     margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 1130px) {
+        flex-direction: column;
+        width: auto;
+    }
     
 
     p{
@@ -13,10 +18,23 @@
         width: 500px;
         font-size: 2rem;
         font-weight: lighter;
+
+        @media (max-width: 1130px) {
+            width: auto;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 800px) {
+            font-size: 1.3rem;
+        }
     }
 
     .second-text{
         margin-top: 17rem;
+        
+        @media (max-width: 1130px) {
+            margin-top: 0;
+        }
     }
 
 }

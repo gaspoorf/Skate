@@ -6,6 +6,11 @@
     align-items: flex-start;
     position: relative;
     margin-top: 20rem;
+    padding: 0 1rem;
+
+    @media (max-width: 1300px) {
+        width: auto;
+    }
 
     p{
         font-size: 2rem;
@@ -13,6 +18,11 @@
         color: red;
         max-width: 1000px;
         text-align: center;
+
+        @media (max-width: 800px) {
+            font-size: 1.3rem;
+            padding: 0 1rem;
+        }
     }
 
 }

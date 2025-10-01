@@ -13,14 +13,53 @@ gsap.registerPlugin(ScrollTrigger)
 function CameraController() {
   const { camera } = useThree()
  
-  const cameraRef = useRef({ 
-    rotation: 0, 
+  const cameraRef = useRef({
+    rotation: 0,
     rotationY: 0,
     radius: 4,
-    height: 45 
+    height: 45
   })
 
+  // responsive
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 450) {
+        cameraRef.current.radius = 12
+      } else if (window.innerWidth <= 500) {
+        cameraRef.current.radius = 10 
+      } else if (window.innerWidth <= 700) {
+        cameraRef.current.radius = 8
+      } else if (window.innerWidth <= 1300) {
+        cameraRef.current.radius = 6
+      } else {
+        cameraRef.current.radius = 4
+      }
+      
+      const angle = cameraRef.current.rotation + Math.atan2(7, 45)
+      const angleY = cameraRef.current.rotationY + Math.atan2(-60, 45)
+      const x = Math.cos(angle) * cameraRef.current.radius
+      const z = Math.sin(angle) * cameraRef.current.radius
+      const y = (-Math.sin(angleY)) * cameraRef.current.radius
+      camera.position.set(x, y, z)
+      camera.lookAt(0, 0, 0)
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    
+    return () => window.removeEventListener('resize', handleResize)
+  }, [camera])
+
+
+  useEffect(() => {
+    const initialAngle = cameraRef.current.rotation + Math.atan2(7, 45)
+    const initialAngleY = cameraRef.current.rotationY + Math.atan2(-60, 45)
+    const initialX = Math.cos(initialAngle) * cameraRef.current.radius
+    const initialZ = Math.sin(initialAngle) * cameraRef.current.radius
+    const initialY = (-Math.sin(initialAngleY)) * cameraRef.current.radius
+    
+    camera.position.set(initialX, initialY, initialZ)
+    camera.lookAt(0, 0, 0)
 
     gsap.to(cameraRef.current, {
       rotation: -150 * (Math.PI / 180),
@@ -31,21 +70,14 @@ function CameraController() {
         start: 'top center',
         end: 'bottom center',
         scrub: true,
-        pinSpacing: false,
-        // markers: true,
-
         onUpdate: () => {
-
           const angle = cameraRef.current.rotation + Math.atan2(7, 45)
           const angleY = cameraRef.current.rotationY + Math.atan2(-60, 45)
-
           const x = Math.cos(angle) * cameraRef.current.radius
           const z = Math.sin(angle) * cameraRef.current.radius
           const y = (-Math.sin(angleY)) * cameraRef.current.radius
-
-
           camera.position.set(x, y, z)
-        
+       
           camera.lookAt(0, 0, 0)
         }
       }
@@ -58,7 +90,6 @@ function CameraController() {
 
   return null
 }
-
 export default function CanvasWrapperDivision() {
   useEffect(() => {
     const canvas = document.querySelector('.canvas-division')
@@ -100,7 +131,7 @@ export default function CanvasWrapperDivision() {
         dpr={[1, 1.5]}
         performance={{ min: 0.5 }}
         gl={{ 
-          antialias: false,
+          antialias: true,
           powerPreference: "high-performance",
           alpha: true,
           stencil: false,

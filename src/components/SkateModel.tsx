@@ -29,6 +29,6 @@ export default function SkateModel() {
         }
     }, [trick, actions])
    
-    return <primitive ref={group} object={scene} scale={0.01} position={[0, -2, 0]} />
+    return <primitive ref={group} object={scene} scale={0.013} position={[0, -3, 0]} />
 }
 useGLTF.preload('/models/skate-animation.glb')

@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { useState, useEffect } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { Canvas, useThree } from '@react-three/fiber'
+// import { OrbitControls } from '@react-three/drei'
 import SkateModel from './SkateModel'
 import '../styles/components/CanvasWrapper.scss'
 
@@ -9,6 +9,32 @@ import '../styles/components/CanvasWrapper.scss'
 // import { Perf } from 'r3f-perf'
 
 import { useHandGesture } from './HandGestureProvider'
+
+
+// responsive
+function CameraController() {
+  const { camera } = useThree()
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 600) {
+        camera.position.set(19, 3, 0)
+      } else if (window.innerWidth <= 1300) {
+        camera.position.set(14, 3, 0)
+      } else {
+        camera.position.set(10, 3, 0)
+      }
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    
+    return () => window.removeEventListener('resize', handleResize)
+  }, [camera])
+
+  return null
+}
+
 
 function HandStatus() {
   const [position, setPosition] = useState({ top: '50%', left: '50%' })
@@ -69,7 +95,7 @@ export default function CanvasWrapperAnimation() {
       <div className='canvas-container' id='animation-block'>
         <div className='canvas-title'>
           <h3>
-            PlayGround
+            <span>Play</span><span>Ground</span>
           </h3>
         </div>
         
@@ -91,7 +117,7 @@ export default function CanvasWrapperAnimation() {
           dpr={[1, 1.5]}
           performance={{ min: 0.5 }}
           gl={{ 
-            antialias: false,
+            antialias: true,
             powerPreference: "high-performance",
             alpha: true,
             stencil: false,
@@ -100,25 +126,13 @@ export default function CanvasWrapperAnimation() {
           }}
           frameloop="always"
         >
+          <CameraController />
           <ambientLight intensity={0.6} />
           <directionalLight position={[5, 5, 5]} intensity={1} castShadow={false}/>
         
           <Suspense fallback={false}>
             <SkateModel />
           </Suspense>
-          
-          <OrbitControls
-            target={[0, -2, 0]}
-            enablePan={false}
-            enableZoom={false}
-            enableRotate={true}
-          
-            autoRotate={false}
-            enableDamping={true}
-            dampingFactor={0.1}
-            makeDefault
-            onStart={() => {}}
-          />
 
         </Canvas>
       </div>
