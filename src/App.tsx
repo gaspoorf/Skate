@@ -1,5 +1,5 @@
 import Loader from './components/Loader'
-
+import Cursor from './components/Cursor'
 import { useEffect } from 'react'
 import Lenis from 'lenis'
 import Hero from './components/Hero'
@@ -44,6 +44,7 @@ function App() {
   return (
     <div className="app-root">
       <Loader />
+      <Cursor />
       <Hero />
       <Intro />
 
