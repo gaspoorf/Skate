@@ -13,7 +13,7 @@ const TextImage = () => {
         <span>Street</span>
         <span>Culture</span>
       </h3>
-      <img src="/img/push.jpg" alt="Picture push skate"/>
+      <img src="/img/push.webp" alt="Picture push skate"/>
       <p className="intro-text">The culture around skateboarding is built on freedom and creativity. One day you’re riding an empty parking lot, the next you’re bombing a hill with friends. Every session creates stories, energy, and memories that stick. The kind you talk about for years, the kind that make the streets feel alive.</p>
     </div>
   )
