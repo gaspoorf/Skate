@@ -31,13 +31,10 @@ const Image = () => {
   }, []);
 
 
-  
-
-
   return (
     <div className="image">
       <div className="img-container">
-        <img src="/img/jam.webp" className="img-content" alt="Picture jam skate"/>
+        <img src="/img/street.jpg" className="img-content" alt="Picture street skate"/>
       </div>
     </div>
   )

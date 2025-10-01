@@ -1,3 +1,5 @@
+import Loader from './components/Loader'
+
 import { useEffect } from 'react'
 import Lenis from 'lenis'
 import Hero from './components/Hero'
@@ -41,6 +43,7 @@ function App() {
 
   return (
     <div className="app-root">
+      <Loader />
       <Hero />
       <Intro />
 
